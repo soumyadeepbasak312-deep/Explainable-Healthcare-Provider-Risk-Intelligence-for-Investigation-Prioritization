@@ -141,10 +141,10 @@ Exposure means billed reimbursement placed under review. It is not fraud found o
 
 Tiers: Tier 1 = ranks 1–50 (50 providers) • Tier 2 = ranks 51–250 (200 providers) • Tier 3 = ranks 251–1,353 (1,103 providers).
 
-Top Global Risk Drivers (mean |SHAP|, log-odds)
-Rank	Feature	Mean |SHAP|
-1	Total_Reimbursement	1.1483
-2	Max_IP_LOS_Days	0.5622
+  Top Global Risk Drivers (mean |SHAP|, log-odds)
+  Rank	Feature	Mean |SHAP|
+  1	Total_Reimbursement	1.1483
+  2	Max_IP_LOS_Days	0.5622
 3	Std_Claims_Per_Beneficiary	0.1932
 4	Reimbursement_Per_Beneficiary	0.1370
 5	Primary_Diagnosis_Normalized_Entropy	0.1272
