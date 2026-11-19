@@ -55,6 +55,7 @@ Checked chronology (no negative durations, no post-death claims).
 Excluded identifiers and dates from the model; no label-derived features.
 2. Provider-Level Aggregation
 Inpatient and outpatient claims were aggregated separately and then merged, so each provider contributes exactly one row (no join multiplication).
+
 3. Feature Engineering
 
 Feature families built per provider:
@@ -64,21 +65,27 @@ Utilization: claim counts, inpatient length of stay, claims per beneficiary.
 Beneficiary reuse: repeat-beneficiary rate, unique beneficiaries, reimbursement per beneficiary.
 Coding behavior: diagnosis diversity, normalized entropy, concentration (HHI).
 Physician concentration across attending / operating / other physicians.
+
 4. Feature Reliability & Pruning
+
 Statistical screening (t-test, Mann–Whitney U, Spearman correlation) with multiple-testing correction.
 Pruned 14 columns (exact duplicates, deterministic complements, zero variance, low denominator support, correlation ≥ 0.90) → 62 final predictors.
 Preprocessing: log1p on 22 heavy-tailed predictors, median imputation + missingness indicators → 90 model inputs, always fitted inside each training fold.
+
 5. Model Development
 Models: Dummy baseline, Logistic Regression (L2), Random Forest, XGBoost, LightGBM.
 Validation: 5-fold stratified cross-validation, same shuffled folds (seed 42), out-of-fold predictions.
 Metrics: Average Precision (AP) as the primary metric, plus ROC-AUC, Precision@50 and Precision@100 (accuracy is misleading at 9.35% prevalence).
 Imbalance: cost-weighting (weight = N-/N+ = 4,904 / 506 ≈ 9.69) was compared with SMOTE-NC.
-6. Probability Calibration
+
+7. Probability Calibration
 Platt scaling fitted on out-of-fold log-odds (nested, leakage-free); isotonic regression compared as an alternative.
-7. Investigation Prioritization
+
+9. Investigation Prioritization
 No arbitrary probability threshold: providers are sorted by calibrated risk and the top-K are reviewed, where K = investigation capacity.
 Fixed rank tiers: Tier 1 – Immediate Review, Tier 2 – Priority Review, Tier 3 – Monitor.
-8. Explainability & Deployment
+
+11. Explainability & Deployment
 TreeSHAP gives exact, additive, feature-level explanations in log-odds.
 Artifacts are serialized and served via FastAPI; analysts use a Streamlit dashboard.
 
