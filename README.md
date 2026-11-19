@@ -141,19 +141,33 @@ Exposure means billed reimbursement placed under review. It is not fraud found o
 
 Tiers: Tier 1 = ranks 1–50 (50 providers) • Tier 2 = ranks 51–250 (200 providers) • Tier 3 = ranks 251–1,353 (1,103 providers).
 
-  Top Global Risk Drivers (mean |SHAP|, log-odds)
-  Rank	Feature	Mean |SHAP|
-  1	Total_Reimbursement	1.1483
-  2	Max_IP_LOS_Days	0.5622
+Top Global Risk Drivers (mean |SHAP|, log-odds)
+
+Rank	Feature	Mean |SHAP|
+  
+1	Total_Reimbursement	1.1483
+
+2	Max_IP_LOS_Days	0.5622
+
 3	Std_Claims_Per_Beneficiary	0.1932
+
 4	Reimbursement_Per_Beneficiary	0.1370
+
 5	Primary_Diagnosis_Normalized_Entropy	0.1272
+
 6	Repeat_Beneficiary_Rate	0.1176
+
 Example Case – Provider PRV53105
+
 Calibrated risk 97.90%, Rank #1 of 1,353, Tier 1 – Immediate Review.
+
 $2,895,670 billed across 2,979 claims (216 inpatient, 2,763 outpatient) for 1,169 beneficiaries.
+
 Higher-risk SHAP contributions: Total_Reimbursement (+3.2638), Max_IP_LOS_Days (+1.4118), Max_Claims_Per_Beneficiary (+1.0392), Primary_Diagnosis_NonMissing (+0.3584), IP_Claim_Count (+0.2873).
+
 Lower-risk contributions are small (for example Overall_Mean_Diag_Per_Claim, −0.0494).
+
+
 🖥️ Interactive Dashboard (FastAPI + Streamlit)
 
 The model, preprocessor, Platt calibrator and provider database are saved as deployment artifacts (champion_lightgbm.joblib, production_preprocessor.joblib, platt_calibrator.joblib, provider_database.pkl) and served by a FastAPI service (port 8000) to a four-tab Streamlit dashboard (port 8501).
