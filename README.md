@@ -91,11 +91,17 @@ Artifacts are serialized and served via FastAPI; analysts use a Streamlit dashbo
 
 🚀 Results & Insights
 Model Benchmark (5-fold stratified CV, out-of-fold)
+
 Model	AP	ROC-AUC	Precision@50	Precision@100
+
 LightGBM + cost weighting ✅	0.7769	0.9572	0.8640	0.7140
+
 XGBoost + cost weighting	0.7709	0.9574	0.8480	0.7100
+
 Logistic Regression (L2)	0.7142	0.9501	0.7960	0.6480
+
 Random Forest (weighted)	0.7088	0.9476	0.7880	0.6580
+
 Dummy (prior only)	0.0935	0.5000	0.1040	0.1080
 Cost-weighting beat SMOTE-NC: LightGBM AP 0.7719 → 0.7543 (−0.0176) and XGBoost AP 0.7731 → 0.7543 (−0.0188) with synthetic oversampling, so weighting was retained.
 Locked champion: LightGBM, 150 trees, learning rate 0.05, max depth 5, 25 leaves, min child samples 20, 0.80 row & feature subsampling, positive-class weight 9.6917, seed 42.
