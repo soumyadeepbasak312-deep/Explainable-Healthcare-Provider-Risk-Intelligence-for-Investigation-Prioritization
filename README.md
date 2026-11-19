@@ -180,8 +180,8 @@ Tab	What it does
 
 REST endpoints
 
-Method	Endpoint	Purpose
-GET	/health	Service health check
+*Method	Endpoint	Purpose
+*GET	/health	Service health check
 GET	/model-info	Model, calibration and pipeline metadata
 GET	/providers/{provider_id}	Risk, rank, tier, financial profile and SHAP drivers (404 for unknown IDs)
 GET	/investigation-queue/top	Top-K ranked providers
