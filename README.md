@@ -103,22 +103,39 @@ Logistic Regression (L2)	0.7142	0.9501	0.7960	0.6480
 Random Forest (weighted)	0.7088	0.9476	0.7880	0.6580
 
 Dummy (prior only)	0.0935	0.5000	0.1040	0.1080
+
 Cost-weighting beat SMOTE-NC: LightGBM AP 0.7719 → 0.7543 (−0.0176) and XGBoost AP 0.7731 → 0.7543 (−0.0188) with synthetic oversampling, so weighting was retained.
+
 Locked champion: LightGBM, 150 trees, learning rate 0.05, max depth 5, 25 leaves, min child samples 20, 0.80 row & feature subsampling, positive-class weight 9.6917, seed 42.
+
 Calibration (Platt scaling)
+
 Metric	Raw LightGBM	After Platt
+
 ECE (Expected Calibration Error)	0.0375	0.0059
+
 Brier score	0.0516	0.0387
+
 Fitted Platt parameters: slope A* = 0.8366, intercept B* = −1.2705.
+
 Ranking quality is unchanged (AP 0.7769, ROC-AUC 0.9572).
+
 Isotonic regression reached ECE 0.0053 but lowered AP to 0.7599, so Platt scaling was chosen.
+
 Investigation Capacity vs Billed Reimbursement Covered (1,353 unseen providers)
+
 Review capacity (top-K)	Reimbursement covered by model queue	Random selection
+
 Top 25	31.99%	1.85%
+
 Top 50	41.18% (≈ $54.72M)	3.69%
+
 Top 100	52.75%	7.39%
+
 Top 200	70.22%	14.78%
+
 Top 500	91.34%	36.96%
+
 
 Exposure means billed reimbursement placed under review. It is not fraud found or money recovered, because public test labels are not available.
 
