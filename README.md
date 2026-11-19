@@ -191,7 +191,7 @@ GET	/providers/{provider_id}	Risk, rank, tier, financial profile and SHAP driver
 GET	/investigation-queue/top	Top-K ranked providers
 
 ▶️ How to Run
-Open the notebook in Google Colab (Python 3, GPU not required).
+/n Open the notebook in Google Colab (Python 3, GPU not required).
 Upload HEALTHCARE PROVIDER FRAUD DETECTION.zip to Google Drive (or the Colab session) and set the path in the first data-loading cell.
 Run the notebook top to bottom. It will:
 extract and audit the data and build the provider-level features,
