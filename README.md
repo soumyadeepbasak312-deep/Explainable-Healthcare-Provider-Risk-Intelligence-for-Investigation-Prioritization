@@ -47,6 +47,7 @@ Billed reimbursement	–	$132.87M
 Four table types: provider labels, beneficiary details, inpatient claims, outpatient claims.
 3,318 of 5,410 training providers are outpatient-only, so inpatient fields are structurally missing and handled with missingness indicators.
 PotentialFraud is an administrative label, not independently verified fraud.
+
 🔧 Key Steps
 1. Data Audit & Leakage Control
 Verified schema agreement between train and test tables, duplicates, unique claim IDs, and provider–beneficiary–claim linkage.
@@ -80,6 +81,7 @@ Fixed rank tiers: Tier 1 – Immediate Review, Tier 2 – Priority Review, Tier 
 8. Explainability & Deployment
 TreeSHAP gives exact, additive, feature-level explanations in log-odds.
 Artifacts are serialized and served via FastAPI; analysts use a Streamlit dashboard.
+
 🚀 Results & Insights
 Model Benchmark (5-fold stratified CV, out-of-fold)
 Model	AP	ROC-AUC	Precision@50	Precision@100
