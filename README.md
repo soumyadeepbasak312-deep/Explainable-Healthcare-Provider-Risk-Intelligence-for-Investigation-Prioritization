@@ -178,14 +178,19 @@ Tab	What it does
 3. Provider Risk Lookup	Look up a provider and get the full structured JSON report.
 4. Model Governance & Validation	Model, calibration parameters (slope 0.8366, intercept −1.2705), feature counts (62 → 90), imbalance ratio 9.69 and policy notes.
 
-REST endpoints
+###REST endpoints
 
-*Method	Endpoint	Purpose
-*GET	/health	Service health check
+Method	Endpoint	Purpose
+
+GET	/health	Service health check
+
 GET	/model-info	Model, calibration and pipeline metadata
+
 GET	/providers/{provider_id}	Risk, rank, tier, financial profile and SHAP drivers (404 for unknown IDs)
+
 GET	/investigation-queue/top	Top-K ranked providers
-▶️ How to Run
+
+###▶️ How to Run
 Open the notebook in Google Colab (Python 3, GPU not required).
 Upload HEALTHCARE PROVIDER FRAUD DETECTION.zip to Google Drive (or the Colab session) and set the path in the first data-loading cell.
 Run the notebook top to bottom. It will:
